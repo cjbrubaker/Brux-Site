@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BRUX — AI Systems Studio | Colorado · California · EST. 2015</title>
+<meta name="description" content="Enterprise-level AI systems for SMBs across Colorado, California, Texas, and beyond. No contracts. No retainers to start. Direct line to the founder. EST. 2015."/>
+<meta property="og:title" content="BRUX — AI Systems Studio"/>
+<meta property="og:description" content="Enterprise expertise. SMB scale. No contracts. We build embedded AI decision systems that work like your sharpest hire."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://brubakermgmt.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  /* LIGHT PINE THEME */
+  --navy: #D4A96A;      /* pine background - warm blonde */
+  --navy2: #C89A58;     /* slightly darker pine */
+  --navy3: #BE8E4A;     /* darker pine for hover */
+  --bone: #1C0C04;      /* dark ink for text */
+  --ash: #3C2010;       /* medium dark brown for body text */
+  --slate: #6B4520;     /* muted brown for labels */
+  --dim: #9A7040;       /* light brown for very muted text */
+  --cyan: #1A5C6A;      /* deep teal - readable on pine */
+  --burnt: #7A2800;     /* deep burnt sienna */
+  --gold: #6B4200;      /* dark amber */
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+/* WOOD WASH BODY */
+body {
+  font-family:'DM Sans',sans-serif;
+  background: #D4A96A;
+  color: var(--bone);
+  background-image:
+    repeating-linear-gradient(180deg,
+      transparent,transparent 9px,
+      rgba(160,90,20,0.18) 9px,rgba(160,90,20,0.18) 10px),
+    repeating-linear-gradient(176deg,
+      transparent,transparent 50px,
+      rgba(100,50,10,0.08) 50px,rgba(100,50,10,0.08) 51px);
+  min-height:100vh;
+}
+
+/* NAV */
+nav {
+  position:sticky;top:0;z-index:100;
+  background:rgba(180,120,50,0.97);
+  backdrop-filter:blur(8px);
+  border-bottom:0.5px solid rgba(232,223,200,0.1);
+  padding:1.2rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.logo {
+  display:flex;align-items:center;gap:0.6rem;
+  font-family:'Bebas Neue',sans-serif;font-size:22px;
+  letter-spacing:0.1em;color:var(--bone);
+  text-decoration:none;cursor:pointer;
+}
+.nav-links {
+  display:flex;gap:1.5rem;list-style:none;
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:0.1em;text-transform:uppercase;
+}
+.nav-links a {
+  color:var(--ash);text-decoration:none;
+  transition:color 0.2s;cursor:pointer;
+}
+.nav-links a:hover{color:var(--bone)}
+.nav-links .cta-link{color:#7A2800}
+
+/* PAGE SYSTEM */
+.page{display:none}
+.page.active{display:block}
+
+.page-tabs {
+  display:flex;gap:0;
+  border-bottom:0.5px solid rgba(232,223,200,0.07);
+  background:rgba(180,120,50,0.3);
+  overflow-x:auto;
+}
+.ptab {
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.85rem 1.5rem;background:transparent;
+  border:none;color:var(--ash);cursor:pointer;
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:all 0.2s;
+}
+.ptab.active{color:var(--bone);border-bottom-color:var(--cyan)}
+.ptab:hover:not(.active){color:var(--bone)}
+
+/* LAYOUT */
+.container{max-width:900px;margin:0 auto}
+section{padding:4rem 2rem}
+.sl {
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:1rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.sl::before{content:'';display:block;width:14px;height:1px;background:var(--cyan)}
+h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(50px,9vw,82px);
+  line-height:0.93;letter-spacing:0.02em;
+  color:var(--bone);margin-bottom:1.25rem;
+}
+h1 .cx{color:var(--cyan)}
+h2 {
+  font-family:'Bebas Neue',sans-serif;font-size:36px;
+  letter-spacing:0.04em;color:var(--bone);
+  margin-bottom:0.75rem;line-height:1.05;
+}
+h3 {
+  font-family:'Bebas Neue',sans-serif;font-size:22px;
+  letter-spacing:0.04em;color:var(--bone);margin-bottom:0.4rem;
+}
+.body{font-size:14px;font-weight:300;color:var(--ash);line-height:1.9}
+.body-lg{font-size:16px;font-weight:300;color:var(--ash);line-height:1.9}
+
+/* BUTTONS */
+.btn-p {
+  display:inline-block;
+  background:#7A2800;color:#F4E8D0;
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.9rem 2rem;border:none;cursor:pointer;
+  text-decoration:none;transition:background 0.2s,transform 0.1s;
+}
+.btn-p:hover{background:#5A1800;transform:translateY(-1px)}
+.btn-g {
+  display:inline-block;
+  background:transparent;color:var(--bone);
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.9rem 0;border:none;cursor:pointer;
+  opacity:0.45;transition:opacity 0.2s;text-decoration:none;
+}
+.btn-g:hover{opacity:1}
+.btn-row{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:2rem}
+
+/* GRID */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:rgba(60,32,16,0.15)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(60,32,16,0.15)}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(60,32,16,0.15)}
+.gcell{background:#C89A58;padding:1.5rem}
+
+/* DIVIDER */
+.divl{width:100%;height:0.5px;background:rgba(60,32,16,0.15);margin:0}
+
+/* STRIP */
+.strip{
+  border-top:0.5px solid rgba(60,32,16,0.2);
+  border-bottom:0.5px solid rgba(60,32,16,0.2);
+  padding:1rem 2rem;
+  display:flex;align-items:center;gap:2rem;overflow:hidden;
+}
+.strip-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);white-space:nowrap;flex-shrink:0}
+.strip-tags{display:flex;gap:1.5rem;flex-wrap:wrap}
+.strip-tag{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:0.06em}
+
+/* SMB POSITIONING BANNER */
+.smb-banner {
+  background:rgba(122,40,0,0.1);
+  border:0.5px solid rgba(122,40,0,0.3);
+  padding:1.75rem 2rem;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;
+}
+.smb-item{padding:0 1.5rem;border-right:0.5px solid rgba(122,40,0,0.18)}
+.smb-item:first-child{padding-left:0}
+.smb-item:last-child{border-right:none}
+.smb-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#7A2800;margin-bottom:0.4rem}
+.smb-value{font-size:13px;font-weight:400;color:var(--bone);line-height:1.5}
+
+/* VERTICAL CARDS */
+.vcard{
+  background:#C89A58;padding:2rem 1.75rem;
+  cursor:pointer;position:relative;
+  border-top:2px solid var(--slate);
+  transition:background 0.2s;
+}
+.vcard:hover{background:rgba(160,90,20,0.3)}
+.vcard.home{border-color:#7A2800}
+.vcard.music{border-color:var(--cyan)}
+.vcard.ads{border-color:var(--gold)}
+.vtag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--slate);margin-bottom:0.75rem}
+.vtitle{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:var(--bone);margin-bottom:0.5rem}
+.vdesc{font-size:12px;font-weight:300;color:var(--ash);line-height:1.8;margin-bottom:1.25rem}
+.chip{font-family:'DM Mono',monospace;font-size:10px;color:var(--slate);margin-bottom:0.3rem;padding-left:0.75rem;position:relative}
+.chip::before{content:'·';position:absolute;left:0}
+.vcard.home .chip::before{color:#7A2800}
+.vcard.music .chip::before{color:var(--cyan)}
+.vcard.ads .chip::before{color:var(--gold)}
+
+/* MODULE CARDS */
+.mod{background:#C89A58;padding:1.5rem;border-top:2px solid var(--slate);transition:background 0.2s}
+.mod:hover{background:rgba(160,90,20,0.3)}
+.mod-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.4rem}
+.mod-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.04em;color:var(--bone);margin-bottom:0.35rem}
+.mod-desc{font-size:11px;font-weight:300;color:var(--ash);line-height:1.7;margin-bottom:0.6rem}
+.mod-items{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);line-height:1.9}
+
+/* GPT CARDS */
+.gpt-card{
+  background:#C89A58;border:0.5px solid rgba(60,32,16,0.2);
+  padding:2rem;margin-bottom:2px;transition:border-color 0.2s;
+}
+.gpt-card:hover{border-color:rgba(60,32,16,0.5)}
+.gpt-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.gpt-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:var(--bone)}
+.gpt-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border:0.5px solid rgba(60,32,16,0.25);color:var(--ash);white-space:nowrap;flex-shrink:0}
+.badge{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;margin-left:0.4rem}
+.badge.gold{background:#6B4200;color:#F4E8D0}
+.badge.cyan{background:#1A5C6A;color:#F4E8D0}
+.badge.red{background:#7A2800;color:#F4E8D0}
+.gpt-pitch{font-size:13px;font-weight:300;color:#6A7A88;margin-bottom:1rem;line-height:1.7;font-style:italic;border-left:2px solid rgba(122,40,0,0.3);padding-left:1rem}
+.gpt-what{font-size:12px;font-weight:300;color:var(--ash);line-height:1.8;margin-bottom:1rem}
+.gpt-outputs{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.85rem}
+.gpt-output{font-family:'DM Mono',monospace;font-size:9px;color:var(--slate);padding:3px 8px;border:0.5px solid rgba(60,32,16,0.2);letter-spacing:0.05em}
+.gpt-cta{font-family:'DM Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase}
+
+/* PULLQUOTE */
+.pullquote{
+  border-left:2px solid rgba(122,40,0,0.4);
+  padding:1rem 1.5rem;margin:2rem 0;
+  font-size:15px;font-weight:300;color:#6A7A88;line-height:1.8;font-style:italic;
+}
+
+/* ABOUT */
+.stat{padding:1.25rem 0;border-bottom:0.5px solid rgba(60,32,16,0.15)}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--bone);line-height:1;margin-bottom:0.15rem}
+.stat-u{font-size:18px;color:var(--cyan)}
+.stat-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase}
+.exp-item{padding:0.7rem 0;border-bottom:0.5px solid rgba(60,32,16,0.12);display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.exp-name{color:var(--bone)}
+.exp-role{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.04em;text-align:right}
+
+/* BLOG */
+.blog-card{background:#C89A58;padding:2rem;cursor:pointer;transition:background 0.2s}
+.blog-card:hover{background:#BE8E4A}
+.blog-cat{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:0.6rem}
+.blog-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.04em;color:var(--bone);margin-bottom:0.4rem;line-height:1.1}
+.blog-excerpt{font-size:12px;font-weight:300;color:var(--ash);line-height:1.8;margin-bottom:0.75rem}
+.blog-meta{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.08em}
+
+/* CONTACT FORM */
+.form-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:0.4rem;display:block}
+.form-input,.form-select,.form-textarea{
+  width:100%;background:transparent;
+  border:none;border-bottom:0.5px solid rgba(60,32,16,0.3);
+  padding:0.6rem 0;color:var(--bone);
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;
+  outline:none;margin-bottom:1.5rem;
+  transition:border-color 0.2s;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-bottom-color:rgba(60,32,16,0.7)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--dim)}
+.form-select{cursor:pointer;appearance:none;background:#C89A58}
+.form-select option{background:#BE8E4A}
+.form-textarea{
+  border:0.5px solid rgba(60,32,16,0.2);
+  padding:0.75rem;resize:none;
+}
+.form-textarea:focus{border-color:rgba(60,32,16,0.5)}
+.form-note{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.07em;margin-top:0.6rem}
+
+/* TRUST ITEMS */
+.trust-item{padding:1.1rem 0;border-bottom:0.5px solid rgba(60,32,16,0.15)}
+.trust-title{font-size:13px;font-weight:500;color:var(--bone);margin-bottom:0.3rem}
+.trust-body{font-size:12px;font-weight:300;color:var(--ash);line-height:1.7}
+
+/* FOOTER */
+footer {
+  padding:1.5rem 2rem;
+  border-top:0.5px solid rgba(60,32,16,0.2);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.footer-copy{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:0.07em}
+.footer-links{display:flex;gap:1.5rem;list-style:none}
+.footer-links a{font-family:'DM Mono',monospace;font-size:9px;color:var(--dim);text-decoration:none;cursor:pointer;transition:color 0.2s}
+.footer-links a:hover{color:var(--bone)}
+
+/* PM BOX */
+.pm-box{border:0.5px solid rgba(60,32,16,0.2);padding:2.5rem;position:relative;margin-bottom:3rem}
+.pm-badge{position:absolute;top:0;right:0;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;background:#6B4200;color:#F4E8D0;padding:4px 12px}
+
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.page.active .container{animation:fadeIn 0.3s ease}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{gap:1rem}
+  section{padding:2.5rem 1.25rem}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .smb-banner{grid-template-columns:1fr}
+  .smb-item{padding:0.75rem 0;border-right:none;border-bottom:0.5px solid rgba(122,40,0,0.18)}
+  .smb-item:last-child{border-bottom:none}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo" onclick="showPage('home')">
+    <svg width="26" height="26" viewBox="0 0 26 26">
+      <path d="M14 11C16 8 20 6 22 4Q24 3 23 5C22 7 18 10 15 12Z" fill="#E8DFC8" opacity="0.9"/>
+      <path d="M14 15C16 18 17 22 17 25Q17 27 15 26C12 24 12 20 12 17Z" fill="#E8DFC8" opacity="0.9"/>
+      <path d="M12 13C9 13 6 12 4 11Q2 10 3 8C4 7 7 8 10 11Z" fill="#E8DFC8" opacity="0.9"/>
+      <circle cx="13" cy="13" r="4" fill="#080F1A"/>
+      <rect x="9.5" y="10" width="2.5" height="6" rx="0.4" fill="#E8DFC8" opacity="0.85"/>
+      <path d="M12,10 Q15.5,10 15.5,12.2 Q15.5,13.8 12,14Z" fill="#E8DFC8" opacity="0.85"/>
+      <path d="M12,14 Q16,14 16,16.2 Q16,17.8 12,17.8Z" fill="#E8DFC8" opacity="0.85"/>
+      <path d="M12,10.8 Q14.5,10.8 14.5,12.2 Q14.5,13.5 12,13.7Z" fill="#080F1A"/>
+      <path d="M12,14.8 Q15,14.8 15,16.2 Q15,17.5 12,17.5Z" fill="#080F1A"/>
+      <line x1="17" y1="10" x2="19.5" y2="17.8" stroke="#E8DFC8" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+      <line x1="19.5" y1="10" x2="17" y2="17.8" stroke="#E8DFC8" stroke-width="1.8" stroke-linecap="round" opacity="0.85"/>
+      <circle cx="18" cy="14" r="3" fill="none" stroke="rgba(232,223,200,0.22)" stroke-width="0.6"/>
+    </svg>
+    BRUX
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('gpt')">AI Modules</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('blog')">Insights</a></li>
+    <li><a class="cta-link" onclick="showPage('contact')">Work With Us</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE TABS -->
+<div class="page-tabs">
+  <button class="ptab active" onclick="showPage('home')">Home</button>
+  <button class="ptab" onclick="showPage('gpt')">AI Modules</button>
+  <button class="ptab" onclick="showPage('verticals')">Verticals</button>
+  <button class="ptab" onclick="showPage('about')">About</button>
+  <button class="ptab" onclick="showPage('blog')">Insights</button>
+  <button class="ptab" onclick="showPage('contact')">Contact</button>
+</div>
+
+<!-- ═══ HOME ═══ -->
+<div id="page-home" class="page active">
+<div class="container">
+
+  <section style="padding-bottom:2rem">
+    <div class="sl">AI Systems Studio · EST. 2015 · Colorado · California</div>
+    <h1>AI THAT WORKS<br>LIKE YOUR<br><span class="cx">SHARPEST HIRE</span></h1>
+    <p class="body-lg" style="max-width:480px;margin-bottom:0.5rem">Enterprise-level AI systems built for small and medium businesses. No contracts, no Salesforce-size invoices, no account managers. Just embedded AI that actually works — built by someone who's managed $30M+/mo at the highest levels.</p>
+    <div class="btn-row">
+      <button class="btn-p" onclick="showPage('contact')">Start the Conversation</button>
+      <button class="btn-g" onclick="showPage('gpt')">See the AI Modules →</button>
+    </div>
+  </section>
+
+  <!-- SMB POSITIONING BANNER -->
+  <div class="smb-banner" style="margin:0 2rem 0">
+    <div class="smb-item">
+      <div class="smb-label">Not this</div>
+      <div class="smb-value">Salesforce · HubSpot · $50K enterprise implementations · 6-month onboarding · Account managers you never meet</div>
+    </div>
+    <div class="smb-item">
+      <div class="smb-label">This</div>
+      <div class="smb-value">Embedded AI built for your specific operation. Direct line to the founder. Start with one module. No contract required.</div>
+    </div>
+    <div class="smb-item">
+      <div class="smb-label">The difference</div>
+      <div class="smb-value">Fortune 500 expertise — Apple, OMD, $30M+/mo — delivered at a price and pace that works for your business.</div>
+    </div>
+  </div>
+
+  <div class="strip" style="margin-top:2px">
+    <span class="strip-label">Built on</span>
+    <div class="strip-tags">
+      <span class="strip-tag">Custom AI Assistants</span><span class="strip-tag">·</span>
+      <span class="strip-tag">Workflow Intelligence</span><span class="strip-tag">·</span>
+      <span class="strip-tag">Decision Support AI</span><span class="strip-tag">·</span>
+      <span class="strip-tag">Paid Media Intelligence</span><span class="strip-tag">·</span>
+      <span class="strip-tag">No Contracts</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="sl">Enter Your Industry</div>
+    <h2 style="margin-bottom:0.5rem">THREE WORLDS.<br>ONE METHODOLOGY.</h2>
+    <p class="body" style="max-width:500px;margin-bottom:2.5rem">AI systems built for your specific operating context. Not repurposed enterprise tools with a new price tag.</p>
+    <div class="g3">
+      <div class="vcard home" onclick="showPage('verticals')">
+        <div class="vtag">Vertical 01</div>
+        <div class="vtitle">Home Services AI</div>
+        <p class="vdesc">Lead intelligence, call analysis, media performance, and owner briefings. Built for roofing, HVAC, plumbing, and contractors.</p>
+        <div class="chip">Paid Media Analyst AI</div>
+        <div class="chip">Call Intelligence AI</div>
+        <div class="chip">Owner Briefing AI</div>
+        <div class="chip">Lead Attribution System</div>
+      </div>
+      <div class="vcard music" onclick="showPage('verticals')">
+        <div class="vtag">Vertical 02</div>
+        <div class="vtitle">Music Industry AI</div>
+        <p class="vdesc">Touring, recordings, financial, marketing, operations — the complete business stack. Built from inside the ecosystem.</p>
+        <div class="chip">Tour Intelligence AI</div>
+        <div class="chip">Release Campaign AI</div>
+        <div class="chip">Financial Briefer AI</div>
+        <div class="chip">Fan Intelligence System</div>
+      </div>
+      <div class="vcard ads" onclick="showPage('verticals')">
+        <div class="vtag">Vertical 03</div>
+        <div class="vtitle">Advertising AI</div>
+        <p class="vdesc">For agencies, in-house teams, and media buyers who need decisions — not more dashboards.</p>
+        <div class="chip">Creative Intelligence AI</div>
+        <div class="chip">Budget Intelligence AI</div>
+        <div class="chip">Attribution AI</div>
+        <div class="chip">Campaign Briefing AI</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divl"></div>
+
+  <section style="padding-top:3rem;padding-bottom:3rem">
+    <div class="sl">Markets Served</div>
+    <h2 style="margin-bottom:0.5rem">WHERE BRUX OPERATES.</h2>
+    <p class="body" style="max-width:560px;margin-bottom:2.5rem">Remote-first by design. Built in Colorado, forged in California, expanding across the markets where home services, music, and advertising businesses operate at scale.</p>
+    <div class="g4">
+      <div class="gcell">
+        <div class="sl" style="margin-bottom:0.5rem;color:#7A2800">Colorado</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.04em;color:#1C0C04;margin-bottom:0.4rem">Home Base</div>
+        <p class="body" style="font-size:11px">Denver Metro · Colorado Springs · Fort Collins · Boulder. Deep roots in home services — roofing, HVAC, and contractor markets across the Front Range.</p>
+      </div>
+      <div class="gcell">
+        <div class="sl" style="margin-bottom:0.5rem;color:#7A2800">California</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.04em;color:#1C0C04;margin-bottom:0.4rem">Entertainment + Growth</div>
+        <p class="body" style="font-size:11px">Los Angeles · San Francisco · San Diego. Music industry roots, entertainment business, high-growth agencies. The market that shaped the methodology.</p>
+      </div>
+      <div class="gcell">
+        <div class="sl" style="margin-bottom:0.5rem;color:#7A2800">Texas</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.04em;color:#1C0C04;margin-bottom:0.4rem">High-Volume Home Services</div>
+        <p class="body" style="font-size:11px">Dallas · Houston · Austin · San Antonio. Some of the highest-volume home services markets in the US. Built for businesses running $1M–$50M+ in annual revenue.</p>
+      </div>
+      <div class="gcell">
+        <div class="sl" style="margin-bottom:0.5rem;color:#7A2800">Nationwide</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.04em;color:#1C0C04;margin-bottom:0.4rem">Remote-First by Design</div>
+        <p class="body" style="font-size:11px">New York · Nashville · Phoenix · Chicago · Miami. If your business runs paid media, manages inbound calls, or releases music — BRUX works wherever you are.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divl"></div>
+
+  <section>
+    <div class="pullquote">"Most companies already have access to AI. What they don't have is the operational intelligence layer that makes it actually useful. BRUX closes that gap — at a price that doesn't require a boardroom approval."</div>
+    <div class="g3">
+      <div class="gcell">
+        <div class="sl" style="margin-bottom:0.4rem">For you, the owner</div>
+        <p class="body" style="font-size:12px">Embedded AI that surfaces decisions — not a dashboard that requires someone to interpret it. Built to run while you run the business.</p>
+      </div>
+      <div class="gcell">
+        <div class="sl" style="margin-bottom:0.4rem">Enterprise expertise</div>
+        <p class="body" style="font-size:12px">11+ years managing $30M+/mo across Meta, Google, TikTok, and programmatic. Apple. OMD. Real scale — now accessible to your business.</p>
+      </div>
+      <div class="gcell">
+        <div class="sl" style="margin-bottom:0.4rem">SMB terms</div>
+        <p class="body" style="font-size:12px">No contract to start. No retainer until you've seen the system. Direct line to the founder for repairs, additions, or just a question.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align:center;padding-top:3rem">
+    <div class="sl" style="justify-content:center;margin-bottom:0.75rem">Ready to Operate</div>
+    <h2 style="font-size:44px">LET'S BUILD THE SYSTEM.</h2>
+    <p class="body" style="margin:0.75rem auto 2rem;max-width:420px">No pitch decks. No enterprise sales process. One conversation, direct to the founder, about what you're actually trying to solve.</p>
+    <div class="btn-row" style="justify-content:center">
+      <button class="btn-p" onclick="showPage('contact')">Start the Conversation</button>
+      <button class="btn-g" onclick="showPage('about')">About the Founder →</button>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<!-- ═══ AI MODULES ═══ -->
+<div id="page-gpt" class="page">
+<div class="container">
+  <section>
+    <div class="sl">AI Module Suite</div>
+    <h2>THE SYSTEMS THAT CLOSE DEALS</h2>
+    <p class="body-lg" style="max-width:580px;margin-bottom:0.5rem">Each BRUX module is a role-based AI assistant embedded directly into your workflow. Not a chatbot. Not a reporting plugin. A system that thinks, surfaces decisions, and briefs you — daily.</p>
+    <p class="body" style="font-size:12px;max-width:540px;margin-bottom:3rem;color:var(--dim)">These are what prospects ask about first. These are what close the conversation. Click any to understand what it delivers and why it works.</p>
+
+    <div class="gpt-card">
+      <div class="gpt-header">
+        <div class="gpt-name">Paid Media Analyst AI <span class="badge gold">Cross-Industry</span></div>
+        <div class="gpt-tag">Most Requested</div>
+      </div>
+      <p class="gpt-pitch">"Every morning I get a brief on what's working, what's bleeding, and what to do about it. I stopped logging into five dashboards."</p>
+      <p class="gpt-what">Connects to your ad accounts across Meta, Google, TikTok, and programmatic. Runs daily performance analysis, flags anomalies, identifies budget waste, and delivers a plain-English briefing with specific action items — before you've had your first coffee. Built by someone who managed $30M+/mo and knows exactly what to look for.</p>
+      <div class="gpt-outputs">
+        <span class="gpt-output">Daily briefing</span><span class="gpt-output">Anomaly alerts</span>
+        <span class="gpt-output">Pacing analysis</span><span class="gpt-output">Creative fatigue flags</span>
+        <span class="gpt-output">Budget reallocation recs</span><span class="gpt-output">Weekly rollup</span>
+      </div>
+      <div class="gpt-cta">→ Best for: Home Services · Agencies · Any business running paid ads · Starts at one platform</div>
+    </div>
+
+    <div class="gpt-card">
+      <div class="gpt-header">
+        <div class="gpt-name">Call Intelligence AI <span class="badge red">Home Services</span></div>
+        <div class="gpt-tag">Highest ROI</div>
+      </div>
+      <p class="gpt-pitch">"We found out 23% of our booked calls were never followed up on. That was $40K/mo walking out the door. We didn't need more leads — we needed to stop losing the ones we had."</p>
+      <p class="gpt-what">Analyzes every inbound call for intent, objections, booking outcomes, and rep performance. Connects the full attribution chain from ad click to booked call to closed job. Surfaces what's converting and what's not — by source, by rep, by campaign.</p>
+      <div class="gpt-outputs">
+        <span class="gpt-output">Call intent scoring</span><span class="gpt-output">Booking rate by source</span>
+        <span class="gpt-output">Rep performance</span><span class="gpt-output">Objection patterns</span>
+        <span class="gpt-output">Ad-to-call attribution</span>
+      </div>
+      <div class="gpt-cta">→ Best for: Roofing · HVAC · Plumbing · Any home services business with inbound call volume</div>
+    </div>
+
+    <div class="gpt-card">
+      <div class="gpt-header">
+        <div class="gpt-name">Owner Briefing AI <span class="badge red">Home Services</span></div>
+        <div class="gpt-tag">Time Saver</div>
+      </div>
+      <p class="gpt-pitch">"I get a 90-second read every Monday morning that tells me exactly where we stand — revenue, leads, what's working, what needs attention. I used to spend 3 hours building that report myself."</p>
+      <p class="gpt-what">Pulls from your CRM, ad accounts, call data, and job management software. Synthesizes everything into a weekly executive brief — revenue pacing, lead velocity, top channels, red flags, and three specific action items for the week ahead.</p>
+      <div class="gpt-outputs">
+        <span class="gpt-output">Weekly executive brief</span><span class="gpt-output">Revenue pacing</span>
+        <span class="gpt-output">Lead velocity</span><span class="gpt-output">Top channels</span><span class="gpt-output">Action items</span>
+      </div>
+      <div class="gpt-cta">→ Best for: Owner-operators · GMs · Anyone who needs the signal without the noise</div>
+    </div>
+
+    <div class="gpt-card">
+      <div class="gpt-header">
+        <div class="gpt-name">Tour Intelligence AI <span class="badge cyan">Music Industry</span></div>
+        <div class="gpt-tag">Music Suite</div>
+      </div>
+      <p class="gpt-pitch">"We routed the entire fall tour using market data we'd never had access to before. Routing used to be gut feel and agent relationships. Now it's informed by actual demand signals."</p>
+      <p class="gpt-what">Analyzes streaming data by market, ticket sales velocity, venue capacity optimization, settlement forecasting, merch revenue patterns, and routing efficiency. Helps managers and agents make data-backed decisions about where, when, and how to tour.</p>
+      <div class="gpt-outputs">
+        <span class="gpt-output">Market analysis</span><span class="gpt-output">Routing optimization</span>
+        <span class="gpt-output">Settlement forecast</span><span class="gpt-output">Merch intelligence</span><span class="gpt-output">Venue tier analysis</span>
+      </div>
+      <div class="gpt-cta">→ Best for: Artist managers · Booking agents · Tour marketing teams · Independent artists routing their first major run</div>
+    </div>
+
+    <div class="gpt-card">
+      <div class="gpt-header">
+        <div class="gpt-name">Release Campaign AI <span class="badge cyan">Music Industry</span></div>
+        <div class="gpt-tag">Music Suite</div>
+      </div>
+      <p class="gpt-pitch">"It built us a complete 6-week rollout plan — DSP-specific timing, paid social budget allocation, editorial pitch windows. We just executed."</p>
+      <p class="gpt-what">Analyzes catalog performance, DSP algorithmic windows, audience data, and comparable release timelines. Outputs a complete release strategy: timing, pre-save structure, paid social allocation, editorial pitch windows, and week-by-week activation plan. Built for teams who don't have a major label machine behind them.</p>
+      <div class="gpt-outputs">
+        <span class="gpt-output">Release timeline</span><span class="gpt-output">DSP window analysis</span>
+        <span class="gpt-output">Paid social plan</span><span class="gpt-output">Budget allocation</span><span class="gpt-output">Pitch calendar</span>
+      </div>
+      <div class="gpt-cta">→ Best for: Independent artists · Small labels · Music marketing teams without a dedicated strategist</div>
+    </div>
+
+    <div class="gpt-card">
+      <div class="gpt-header">
+        <div class="gpt-name">Creative Intelligence AI <span class="badge gold">Advertising</span></div>
+        <div class="gpt-tag">Agency Favorite</div>
+      </div>
+      <p class="gpt-pitch">"We stopped guessing which creative was burning out. Now we know 10 days before the metrics tank — and we're already in market with the replacement."</p>
+      <p class="gpt-what">Monitors creative performance across all active ad sets. Identifies hook fatigue, format winners, audience-creative fit, and optimal rotation windows. Flags underperforming creative with specific replacement recommendations before spend bleeds. Built by someone who's reviewed thousands of creative combinations at real scale.</p>
+      <div class="gpt-outputs">
+        <span class="gpt-output">Fatigue detection</span><span class="gpt-output">Hook analysis</span>
+        <span class="gpt-output">Format winners</span><span class="gpt-output">Rotation timing</span><span class="gpt-output">Replacement triggers</span>
+      </div>
+      <div class="gpt-cta">→ Best for: Agencies managing creative at scale · In-house teams · Any performance marketer running 5+ ad sets</div>
+    </div>
+
+    <div style="text-align:center;padding:2.5rem 0">
+      <p class="body" style="font-size:12px;margin-bottom:1.5rem;color:var(--dim)">Every module is built custom to your stack, your data, and your workflow. No off-the-shelf tool. No generic prompt engineering. Built to your operation.</p>
+      <button class="btn-p" onclick="showPage('contact')">Request a Module Demo</button>
+    </div>
+  </section>
+</div>
+</div>
+
+<!-- ═══ VERTICALS ═══ -->
+<div id="page-verticals" class="page">
+<div class="container">
+  <section>
+    <div class="sl">Industry Verticals</div>
+    <h2>BUILT FOR YOUR WORLD.<br>NOT ADAPTED FOR IT.</h2>
+    <p class="body-lg" style="max-width:560px;margin-bottom:3rem">Generic enterprise AI tools adapted for every industry work for none of them. BRUX systems are built from the inside — by someone who's actually operated in these spaces at scale.</p>
+
+    <!-- HOME SERVICES -->
+    <div style="margin-bottom:3rem">
+      <div class="sl" style="color:#7A2800">Vertical 01 — Home Services</div>
+      <h3 style="font-size:26px;margin-bottom:0.4rem">HOME SERVICES AI</h3>
+      <p class="body" style="margin-bottom:1.75rem;max-width:560px">Every lead matters. Every call costs money. Every ad dollar either works or it doesn't. BRUX gives home services businesses the intelligence layer to know which is which — in real time. No enterprise contract. No 6-month implementation. Built and deployed in weeks, not quarters.</p>
+      <div class="g4">
+        <div class="mod" style="border-color:#7A2800">
+          <div class="mod-label" style="color:#7A2800">Module 01</div>
+          <div class="mod-title">Paid Media Analyst AI</div>
+          <p class="mod-desc">Daily briefings across Meta, Google, LSA, and programmatic. Budget pacing, anomaly detection, creative fatigue flags.</p>
+          <div class="mod-items">· Budget pacing · Anomaly detection · Creative flags · ROAS by channel</div>
+        </div>
+        <div class="mod" style="border-color:#7A2800">
+          <div class="mod-label" style="color:#7A2800">Module 02</div>
+          <div class="mod-title">Call Intelligence AI</div>
+          <p class="mod-desc">Score every inbound call. Know what's booking and what's leaking before you lose another lead.</p>
+          <div class="mod-items">· Intent scoring · Booking rate · Rep performance · Source attribution</div>
+        </div>
+        <div class="mod" style="border-color:#7A2800">
+          <div class="mod-label" style="color:#7A2800">Module 03</div>
+          <div class="mod-title">Owner Briefing AI</div>
+          <p class="mod-desc">Weekly executive brief — revenue, leads, channels, and exactly what needs your attention this week.</p>
+          <div class="mod-items">· Revenue pacing · Lead velocity · Top channels · Weekly decisions</div>
+        </div>
+        <div class="mod" style="border-color:#7A2800">
+          <div class="mod-label" style="color:#7A2800">Module 04</div>
+          <div class="mod-title">Lead Attribution System</div>
+          <p class="mod-desc">True source-of-truth from ad click to closed job. Know exactly which channels are making you money.</p>
+          <div class="mod-items">· Multi-touch attribution · Job value by source · CPL · Cost per booked job</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MUSIC -->
+    <div style="margin-bottom:3rem">
+      <div class="sl" style="color:var(--cyan)">Vertical 02 — Music Industry</div>
+      <h3 style="font-size:26px;margin-bottom:0.4rem">MUSIC INDUSTRY AI</h3>
+      <p class="body" style="margin-bottom:1.75rem;max-width:560px">The music business runs on relationships and gut feel. BRUX adds the data layer without replacing the instinct. Six modules covering the complete business operation — built by someone who's been in both the business and the data.</p>
+      <div class="g3" style="margin-bottom:1.5px">
+        <div class="mod" style="border-color:var(--cyan)">
+          <div class="mod-label" style="color:var(--cyan)">Touring</div>
+          <div class="mod-title">Tour Intelligence AI</div>
+          <p class="mod-desc">Route optimization, market demand analysis, venue tiering, settlement forecasting, merch patterns.</p>
+          <div class="mod-items">· Market demand · Venue tiers · Settlement forecast · Routing efficiency</div>
+        </div>
+        <div class="mod" style="border-color:var(--cyan)">
+          <div class="mod-label" style="color:var(--cyan)">Recordings</div>
+          <div class="mod-title">Release Intelligence AI</div>
+          <p class="mod-desc">DSP windows, release timing, catalog performance, royalty tracking, editorial pitch calendars.</p>
+          <div class="mod-items">· Release calendar · DSP optimization · Royalty trends · Catalog performance</div>
+        </div>
+        <div class="mod" style="border-color:var(--cyan)">
+          <div class="mod-label" style="color:var(--cyan)">Financial</div>
+          <div class="mod-title">Financial Briefer AI</div>
+          <p class="mod-desc">Revenue consolidation across all streams, deal analysis, P&amp;L summaries, income forecasting.</p>
+          <div class="mod-items">· Revenue overview · Deal tracker · P&amp;L brief · Forecast model</div>
+        </div>
+      </div>
+      <div class="g3">
+        <div class="mod" style="border-color:var(--cyan)">
+          <div class="mod-label" style="color:var(--cyan)">Marketing</div>
+          <div class="mod-title">Marketing AI</div>
+          <p class="mod-desc">Paid social intelligence, content performance, audience growth, playlist pitch intelligence.</p>
+          <div class="mod-items">· Paid social AI · Content performance · Audience growth · Playlist intel</div>
+        </div>
+        <div class="mod" style="border-color:var(--cyan)">
+          <div class="mod-label" style="color:var(--cyan)">Operations</div>
+          <div class="mod-title">Operations Briefer</div>
+          <p class="mod-desc">Team coordination, deadline tracking, contract management, daily ops summary.</p>
+          <div class="mod-items">· Daily ops AI · Contract tracker · Team brief · Deadline intel</div>
+        </div>
+        <div class="mod" style="border-color:var(--cyan)">
+          <div class="mod-label" style="color:var(--cyan)">Fan Data</div>
+          <div class="mod-title">Fan Intelligence AI</div>
+          <p class="mod-desc">Audience insights, engagement analysis, superfan identification, community operations.</p>
+          <div class="mod-items">· Fan segments · Engagement tracker · Superfan ID · Community brief</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADVERTISING -->
+    <div style="margin-bottom:3rem">
+      <div class="sl" style="color:var(--gold)">Vertical 03 — Advertising</div>
+      <h3 style="font-size:26px;margin-bottom:0.4rem">ADVERTISING AI</h3>
+      <p class="body" style="margin-bottom:1.75rem;max-width:560px">Built by someone who managed $30M+/mo across Meta, Google, TikTok, Pinterest, and programmatic. This isn't a reporting layer — it's a decision engine for agencies and in-house media buyers who need to move faster than their data.</p>
+      <div class="g4">
+        <div class="mod" style="border-color:var(--gold)">
+          <div class="mod-label" style="color:var(--gold)">Module 01</div>
+          <div class="mod-title">Paid Media Analyst AI</div>
+          <p class="mod-desc">Daily cross-platform briefings with specific, actionable recommendations — not data dumps.</p>
+          <div class="mod-items">· Anomaly detection · Pacing · Budget efficiency · Daily brief</div>
+        </div>
+        <div class="mod" style="border-color:var(--gold)">
+          <div class="mod-label" style="color:var(--gold)">Module 02</div>
+          <div class="mod-title">Creative Intelligence AI</div>
+          <p class="mod-desc">Fatigue detection before the metrics tank. Hook scoring, format winners, rotation recommendations.</p>
+          <div class="mod-items">· Fatigue flags · Hook scoring · Format winners · Rotation recs</div>
+        </div>
+        <div class="mod" style="border-color:var(--gold)">
+          <div class="mod-label" style="color:var(--gold)">Module 03</div>
+          <div class="mod-title">Attribution AI</div>
+          <p class="mod-desc">Cross-channel attribution that actually reflects how customers buy, not how platforms report.</p>
+          <div class="mod-items">· Multi-touch attribution · True ROAS · Incrementality · Source clarity</div>
+        </div>
+        <div class="mod" style="border-color:var(--gold)">
+          <div class="mod-label" style="color:var(--gold)">Module 04</div>
+          <div class="mod-title">Budget Intelligence AI</div>
+          <p class="mod-desc">Reallocation recommendations, forecast modeling, spend efficiency scoring, scenario planning.</p>
+          <div class="mod-items">· Reallocation recs · Forecast model · Spend scoring · Scenario planning</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAID MEDIA CROSS-VERTICAL -->
+    <div class="pm-box">
+      <div class="pm-badge">Available Across All Verticals</div>
+      <div class="sl" style="margin-bottom:0.75rem">Paid Media Module</div>
+      <h3 style="font-size:24px">EVERY INDUSTRY RUNS ADS.<br>MOST DON'T KNOW IF THEY'RE WORKING.</h3>
+      <p class="body" style="max-width:500px;margin:0.75rem 0 1.75rem">The BRUX Paid Media Intelligence module drops into any vertical. $30M+/mo of operational experience built into every recommendation. Not a dashboard plugin — a practitioner-level decision engine, available to your SMB at a fraction of what enterprise tools charge.</p>
+      <button class="btn-p" onclick="showPage('contact')">Request This Module</button>
+    </div>
+  </section>
+</div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div id="page-about" class="page">
+<div class="container">
+  <section>
+    <div class="sl">The Founder</div>
+    <h2 style="font-size:40px">ENTERPRISE EXPERTISE.<br>SMB TERMS.<br><span style="color:var(--cyan)">DIRECT LINE.</span></h2>
+
+    <div class="about-grid" style="display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;margin-top:3rem">
+
+      <div>
+        <div class="stat"><div class="stat-num">11<span class="stat-u">+</span></div><div class="stat-label">Years Performance Marketing</div></div>
+        <div class="stat"><div class="stat-num">$<span class="stat-u">30M</span></div><div class="stat-label">Monthly Ad Budgets Managed</div></div>
+        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Major Ad Platforms</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">Industry Verticals Deep</div></div>
+        <div class="stat" style="border:none"><div class="stat-num">2015</div><div class="stat-label">Colorado · California · Est.</div></div>
+      </div>
+
+      <div>
+        <p class="body-lg" style="margin-bottom:1.5rem">Cody Brubaker built BRUX to solve one specific problem: companies — especially small and medium ones — have access to the same AI tools as Fortune 500 companies, but no one to operationalize them. Built in Colorado. Shaped by years in Los Angeles. Serving businesses across both coasts and everywhere in between.</p>
+        <p class="body" style="margin-bottom:1.25rem">The enterprise consulting firms charge six figures and take six months. The off-the-shelf AI tools require a data team to interpret. BRUX sits in between — practitioner-built, SMB-priced, and delivered with a direct line to the person who built it.</p>
+        <p class="body" style="margin-bottom:1.25rem">With 11+ years managing $30M+/mo in paid media across Apple (via OMD), EcoShield, Mercy Ships, and more — plus deep roots in artist management and the music industry — the systems BRUX builds aren't theoretical. They're built on the same operational logic used at the highest levels, now accessible to businesses of any size.</p>
+        <p class="body" style="margin-bottom:2rem">No contracts required to start. No retainer until you've seen the system work. Build it, see it run, then decide.</p>
+
+        <div class="sl" style="margin-bottom:1rem">Experience</div>
+        <div class="exp-item"><span class="exp-name">Apple (via OMD)</span><span class="exp-role">Associate Director, Paid Media</span></div>
+        <div class="exp-item"><span class="exp-name">Parallel Path</span><span class="exp-role">Director, AI-Enabled Growth</span></div>
+        <div class="exp-item"><span class="exp-name">EcoShield Exteriors</span><span class="exp-role">Growth Marketing Lead</span></div>
+        <div class="exp-item"><span class="exp-name">Mercy Ships</span><span class="exp-role">Performance — $4M+ Giving Tuesday</span></div>
+        <div class="exp-item"><span class="exp-name">Quigley-Simpson</span><span class="exp-role">Agency Strategy</span></div>
+        <div class="exp-item"><span class="exp-name">Brubaker Artist Management</span><span class="exp-role">Founder — Music Management</span></div>
+        <div class="exp-item" style="border:none"><span class="exp-name">Brixton by Brubaker</span><span class="exp-role">Founder — Concert Poster Brand</span></div>
+
+        <div class="sl" style="margin-top:2rem;margin-bottom:1rem">Credentials</div>
+        <p class="body" style="font-size:12px;margin-bottom:0.4rem">CU Denver — Marketing + Music & Entertainment Industry Studies, 2015</p>
+        <p class="body" style="font-size:12px;margin-bottom:0.4rem">Cornell AI Certificate</p>
+        <p class="body" style="font-size:12px;margin-bottom:0.4rem">Meta Blueprint · Google Ads Certified · GA4 · GTM · Looker Studio · CallRail · Microsoft Dynamics</p>
+        <p class="body" style="font-size:12px">Portfolio: <a href="https://bit.ly/codybrubaker-portfolio" target="_blank" style="color:var(--cyan)">bit.ly/codybrubaker-portfolio</a></p>
+
+        <div class="btn-row">
+          <button class="btn-p" onclick="showPage('contact')">Work With Cody</button>
+          <a href="https://bit.ly/codybrubaker-portfolio" target="_blank" class="btn-g">View Portfolio →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+
+<!-- ═══ BLOG ═══ -->
+<div id="page-blog" class="page">
+<div class="container">
+  <section>
+    <div class="sl">BRUX Insights</div>
+    <h2>THINKING OUT LOUD<br>ON AI + OPERATIONS</h2>
+    <p class="body-lg" style="max-width:520px;margin-bottom:3rem">No thought leadership fluff. No enterprise case studies for companies you'll never be. Practical takes on AI operationalization, paid media intelligence, and what's actually working for SMBs right now.</p>
+
+    <div class="g2">
+      <div class="blog-card">
+        <div class="blog-cat" style="color:#7A2800">Perspective</div>
+        <div class="blog-title">WHY MOST AI IMPLEMENTATIONS FAIL IN THE LAST MILE</div>
+        <p class="blog-excerpt">Companies have access to AI. What they lack is operationalization. The tools are there — the systems, the workflows, the decision logic — that's what's missing. And no, you don't need Salesforce to fix it.</p>
+        <div class="blog-meta">5 min read · AI Operations</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-cat" style="color:var(--gold)">Paid Media</div>
+        <div class="blog-title">THE $30M/MO PAID MEDIA PLAYBOOK — AND WHAT AI CHANGES</div>
+        <p class="blog-excerpt">Managing $30M+ monthly across Meta, Google, TikTok, and programmatic taught me what breaks at scale. AI doesn't change the fundamentals — it accelerates the feedback loop. Here's what that looks like for a $30K/mo budget.</p>
+        <div class="blog-meta">7 min read · Paid Media Intelligence</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-cat" style="color:var(--cyan)">Music Industry</div>
+        <div class="blog-title">THE MUSIC BUSINESS DATA PROBLEM — AND HOW AI ACTUALLY SOLVES IT</div>
+        <p class="blog-excerpt">More data than ever, less clarity than it deserves. Streaming dashboards, DSP analytics, social metrics — the signals are there. The synthesis is what's missing. That's what BRUX builds for independent artists and small labels.</p>
+        <div class="blog-meta">6 min read · Music Industry AI</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-cat" style="color:#7A2800">Home Services</div>
+        <div class="blog-title">HOW HOME SERVICES COMPANIES LOSE MONEY ON EVERY UNTRACKED LEAD</div>
+        <p class="blog-excerpt">The average home services company can tell you their CPL. Almost none can tell you their cost per booked job by channel. That gap costs more than their entire marketing budget. Here's the fix — no enterprise software required.</p>
+        <div class="blog-meta">5 min read · Home Services AI</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-cat" style="color:rgba(232,223,200,0.35)">AI Systems</div>
+        <div class="blog-title">WHAT A REAL AI BRIEFING LOOKS LIKE VS A DASHBOARD</div>
+        <p class="blog-excerpt">A dashboard shows you what happened. A briefing tells you what to do. Most "AI tools" are just dashboards with a chatbot stapled on. BRUX systems are built around decisions, not displays. Here's the difference in practice.</p>
+        <div class="blog-meta">4 min read · AI Systems Design</div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-cat" style="color:var(--gold)">BRUX POV</div>
+        <div class="blog-title">AI AS A VERB — WHAT IT MEANS TO BRUX YOUR OPERATIONS</div>
+        <p class="blog-excerpt">We named the company BRUX because we want it to become a verb. "We Bruxed the ops" should mean something specific: embedded, operational, decision-first AI — delivered without the enterprise price tag or the enterprise bureaucracy.</p>
+        <div class="blog-meta">3 min read · BRUX Philosophy</div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div id="page-contact" class="page">
+<div class="container">
+  <section>
+    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem">
+
+      <!-- FORM -->
+      <div>
+        <div class="sl">Work With BRUX</div>
+        <h2 style="font-size:34px">LET'S BUILD<br>THE SYSTEM.</h2>
+        <p class="body" style="margin:1rem 0 2.5rem;max-width:360px">Direct line to the founder. No sales team, no account managers, no pitch deck required. Tell us what you're trying to solve.</p>
+
+        <!-- Netlify form -->
+        <form name="brux-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="brux-contact"/>
+          <p style="display:none"><input name="bot-field"/></p>
+
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" name="name" placeholder="First Last" required/>
+
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" name="email" placeholder="you@company.com" required/>
+
+          <label class="form-label">Company / Organization</label>
+          <input class="form-input" type="text" name="company" placeholder="Company name"/>
+
+          <label class="form-label">Industry</label>
+          <select class="form-select" name="industry">
+            <option value="">Select your industry</option>
+            <option>Home Services (Roofing / HVAC / Plumbing)</option>
+            <option>Music Industry (Artist / Manager / Label)</option>
+            <option>Advertising (Agency / In-House / Media Buyer)</option>
+            <option>Other</option>
+          </select>
+
+          <label class="form-label">Which module interests you most?</label>
+          <select class="form-select" name="module">
+            <option value="">Select a module</option>
+            <option>Paid Media Analyst AI</option>
+            <option>Call Intelligence AI</option>
+            <option>Owner Briefing AI</option>
+            <option>Tour Intelligence AI</option>
+            <option>Release Campaign AI</option>
+            <option>Creative Intelligence AI</option>
+            <option>Full Suite</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+
+          <label class="form-label">What are you trying to solve?</label>
+          <textarea class="form-textarea" name="message" rows="4" placeholder="Brief description of your challenge or what you want AI to do for your business..." required></textarea>
+
+          <button class="btn-p" type="submit">Send It →</button>
+          <p class="form-note">We respond within 24 hours. No sales calls until you ask for one. No contract required to start.</p>
+        </form>
+      </div>
+
+      <!-- TRUST -->
+      <div style="padding-top:3.5rem">
+        <div class="sl" style="margin-bottom:1.5rem">Why SMBs choose BRUX</div>
+
+        <div class="trust-item">
+          <div class="trust-title">No retainer until you've seen the system work</div>
+          <p class="trust-body">Every engagement starts with a diagnostic — we map your data, your workflow, and what a BRUX module would actually do. You see the plan before you commit to anything. This is how we'd want to buy.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-title">Enterprise expertise. Not enterprise pricing.</div>
+          <p class="trust-body">The same intelligence used to manage $30M+/mo at Apple and OMD — built into systems your business can actually afford and actually use. No Salesforce license required.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-title">Start with one module. Add more when it works.</div>
+          <p class="trust-body">Most clients start with Paid Media Analyst AI or Owner Briefing AI and expand from there. You're not locked into a suite. You're not paying for features you don't use.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-title">Direct line to the founder — forever</div>
+          <p class="trust-body">Not a ticket system. Not an account manager. Cody built it and Cody maintains it. When something breaks or you want to add something, you text or email the person who built it.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-title">Your data stays yours</div>
+          <p class="trust-body">BRUX systems connect to your existing tools. We don't host your data, don't sell it, and every system is transparent and auditable. You own everything.</p>
+        </div>
+        <div class="trust-item" style="border:none">
+          <div class="trust-title">Colorado · California · Remote-first · EST. 2015</div>
+          <p class="trust-body">
+            <a href="mailto:cody@brubakermgmt.com" style="color:#1A5C6A;text-decoration:none;font-weight:500">cody@brubakermgmt.com</a><br/>
+            <a href="tel:3038194250" style="color:var(--ash);text-decoration:none">303-819-4250</a><br/>
+            <a href="https://bit.ly/codybrubaker-portfolio" target="_blank" style="color:var(--ash);text-decoration:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em">View Portfolio →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 BRUX — AI Systems Studio · EST. 2015 · Colorado · California · brubakermgmt.com</span>
+  <ul class="footer-links">
+    <li><a onclick="showPage('home')">Home</a></li>
+    <li><a onclick="showPage('gpt')">AI Modules</a></li>
+    <li><a onclick="showPage('about')">About</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) page.classList.add('active');
+  const tabMap = {home:'Home',gpt:'AI Modules',verticals:'Verticals',about:'About',blog:'Insights',contact:'Contact'};
+  document.querySelectorAll('.ptab').forEach(t => {
+    if (t.textContent.trim() === tabMap[id]) t.classList.add('active');
+  });
+  window.scrollTo(0, 0);
+}
+
+// Handle Netlify form success
+if (window.location.search.includes('success')) {
+  showPage('contact');
+}
+</script>
+</body>
+</html>
